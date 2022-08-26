@@ -87,14 +87,14 @@ Node* merge(Node* first, Node* second) {
 	while (first || second) {
 		if (first && (!second || first->value < second->value)) {
 			it->value = first->value;
-			it = it->next;
+			first = first->next;
 		}
 		else {
 			it->value = second-> value;
 			second  = second->next;
 		}
 
-		it->next = (first || second ? new Node : nullptr);
+ 		it->next = (first || second ? new Node : nullptr);
 		it = it->next;
 	}
 	return ans;
